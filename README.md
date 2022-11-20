@@ -5,7 +5,7 @@ https://www.kaggle.com/c/hungry-geese/overview/description
 # Model
 
 # Result
-
+Comparing DQN , Double-DQN , Bootstrapped-DQN in Hungry-Geese environment from kaggle
 TBU
 
 # Project Report
