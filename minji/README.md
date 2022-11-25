@@ -4,13 +4,21 @@ VGG, Googlenet 구조를 참고해 더 많은 layer를 이용해 더 deep한 모
 1. main_1
 
 def DQNet():
+
     model = tf.keras.Sequential()
+
     model.add(tf.keras.Input(shape=(7,11,17)))
+    
     model.add(tf.keras.layers.Conv2D(filters=128, kernel_size=(3,5), activation='relu'))
+    
     model.add(tf.keras.layers.Conv2D(filters=256, kernel_size=3, activation='relu'))
+    
     model.add(tf.keras.layers.Conv2D(filters=128, kernel_size=3, activation='relu'))
+    
     model.add(tf.keras.layers.Flatten())
+    
     model.add(tf.keras.layers.Dense(64, activation='relu'))
+    
     model.add(tf.keras.layers.Dense(4, activation='linear'))
     
     model.compile(loss=tf.keras.losses.Huber(), optimizer=tf.keras.optimizers.Adam(), metrics=['accuracy'])
@@ -22,13 +30,21 @@ Convolution layer는 동일하게 정의하고, fully connected layer의 개수�
 2. main_2
 
 def DQNet():
+
     model = tf.keras.Sequential()
+    
     model.add(tf.keras.Input(shape=(7,11,17)))
+    
     #model.add(tf.keras.layers.UpSampling2D(size=(11, 7)))
+    
     model.add(tf.keras.layers.Conv2D(filters=128, kernel_size=(3,5), activation='relu'))
+    
     model.add(tf.keras.layers.Conv2D(filters=256, kernel_size=3, activation='relu'))
+    
     model.add(tf.keras.layers.Flatten())
+    
     model.add(tf.keras.layers.Dense(64, activation='relu'))
+    
     model.add(tf.keras.layers.Dense(4, activation='linear'))
  
 Convolution layer의 개수를 하나 줄였다. fully connected layer의 개수를 줄이고 node의 수도 줄였다.
